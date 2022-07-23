@@ -42,6 +42,7 @@ export default class App extends React.Component {
      ]
     }
     this.addTrack = this.addTrack.bind(this)
+    this.removeTrack = this.removeTrack.bind(this)
     }
 
   render() {
@@ -52,7 +53,7 @@ export default class App extends React.Component {
       <SearchBar />
       <div className="App-playlist">
         <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-        <Playlist name={this.state.playlistName} tracks={this.state.playlistTracks}/>
+        <Playlist name={this.state.playlistName} tracks={this.state.playlistTracks} onRemove={this.removeTrack}/>
       </div>
     </div>
     </div>
@@ -61,7 +62,6 @@ export default class App extends React.Component {
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-    console.log(track)
     if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
     } 
@@ -69,4 +69,11 @@ export default class App extends React.Component {
     this.setState({playlistTracks: tracks})
     }
 
+    removeTrack(track) {
+      let tracks = this.state.playlistTracks;
+      tracks = tracks.filter(currentTrack => currentTrack.id !== track.id)
+      this.setState({
+        playlistTracks: tracks 
+      })
+    }
   }
