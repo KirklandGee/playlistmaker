@@ -11,7 +11,13 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
-        searchResults: [],
+      searchResults: [  {
+        name: 'Gravity',
+        artist: 'John Mayer',
+        album: 'Continuum',
+        id: 1,
+        uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
+      }],
       playlistName: "My Songs",
       playlistTracks: [
       {

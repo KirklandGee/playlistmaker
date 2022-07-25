@@ -31,7 +31,7 @@ export class SearchBar extends React.Component {
     })
   }
 
-  search() {
+  search(searchTerm) {
     this.props.onSearch(this.state.searchTerm)
   }
 
