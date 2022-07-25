@@ -16,19 +16,23 @@ export default class App extends React.Component {
           name: 'Alright',
           artist: 'Kendrick Lamar',
           album: 'To Pimp a Butterfly',
-          id: 0
+          id: 0,
+          uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
+
         },
         {
           name: 'Gravity',
           artist: 'John Mayer',
           album: 'Continuum',
-          id: 1
+          id: 1,
+          uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
         },
         {
           name: 'Coins',
           artist: 'Local Natives',
           album: 'Sunlit Youth',
-          id: 2
+          id: 2,
+          uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
         },
       ],
       playlistName: "My Songs",
@@ -37,13 +41,16 @@ export default class App extends React.Component {
         name: 'Gravity',
         artist: 'John Mayer',
         album: 'Continuum',
-        id: 1
+        id: 1,
+        uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
       },
      ]
     }
     this.addTrack = this.addTrack.bind(this)
     this.removeTrack = this.removeTrack.bind(this)
     this.updatePlaylistName = this.updatePlaylistName.bind(this)
+    this.savePlaylist = this.savePlaylist.bind(this)
+    this.search = this.search.bind(this)
     }
 
   render() {
@@ -53,11 +60,15 @@ export default class App extends React.Component {
     <div className="App">
       <SearchBar />
       <div className="App-playlist">
-        <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
+        <SearchResults searchResults={this.state.searchResults} 
+                      onAdd={this.addTrack}
+                      onSearch={this.search}
+                      />
         <Playlist name={this.state.playlistName} 
                 tracks={this.state.playlistTracks} 
                 onRemove={this.removeTrack}
                 onNameChange={this.updatePlaylistName}
+                onSave={this.savePlaylist}
                 />
       </div>
     </div>
@@ -86,4 +97,13 @@ export default class App extends React.Component {
       playlistName: name
     })
   }
+
+  savePlaylist() {
+    const trackURIs = this.state.playlistTracks.map(track => track.uri)
+  }
+
+  search(searchTerm) {
+    console.log(searchTerm)
+  }
+
 }
