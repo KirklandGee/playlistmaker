@@ -3,7 +3,6 @@ import './App.css';
 import {Playlist} from '../Playlist/Playlist'
 import { SearchBar } from '../SearchBar/SearchBar';
 import { SearchResults } from '../SearchResults/SearchResults';
-import { render } from '@testing-library/react';
 import { Spotify } from '../../util/Spotify';
 
 export default class App extends React.Component {
