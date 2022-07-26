@@ -11,23 +11,22 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
-      searchResults: [  {
-        name: 'Gravity',
-        artist: 'John Mayer',
-        album: 'Continuum',
-        id: 1,
-        uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
-      }],
+      searchResults: [],
       playlistName: "My Songs",
-      playlistTracks: [
-      {
+      playlistTracks: [{
+        name: "New Light",
+        album: "Sob Rock",
+        artist: "John Mayer",
+        id: "4T6FWA703h6H7zk1FoSARw",
+        uri: "spotify:track:4T6FWA703h6H7zk1FoSARw"
+          },    
+        {
         name: 'Gravity',
         artist: 'John Mayer',
         album: 'Continuum',
         id: 1,
         uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
-      },
-     ]
+        },]
     }
     this.addTrack = this.addTrack.bind(this)
     this.removeTrack = this.removeTrack.bind(this)
@@ -83,7 +82,13 @@ export default class App extends React.Component {
   }
 
   savePlaylist() {
-    const trackURIs = this.state.playlistTracks.map(track => track.uri)
+    const trackUris = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
+      this.setState({
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      })
+    })
   }
 
   search(searchTerm) {
