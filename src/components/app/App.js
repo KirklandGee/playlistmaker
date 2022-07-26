@@ -13,20 +13,22 @@ export default class App extends React.Component {
       this.state = {
       searchResults: [],
       playlistName: "My Songs",
-      playlistTracks: [{
-        name: "New Light",
-        album: "Sob Rock",
-        artist: "John Mayer",
-        id: "4T6FWA703h6H7zk1FoSARw",
-        uri: "spotify:track:4T6FWA703h6H7zk1FoSARw"
-          },    
-        {
-        name: 'Gravity',
-        artist: 'John Mayer',
-        album: 'Continuum',
-        id: 1,
-        uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
-        },]
+      playlistTracks: [
+        // {
+        // name: "New Light",
+        // album: "Sob Rock",
+        // artist: "John Mayer",
+        // id: "4T6FWA703h6H7zk1FoSARw",
+        // uri: "spotify:track:4T6FWA703h6H7zk1FoSARw"
+        //   },    
+        // {
+        // name: 'Gravity',
+        // artist: 'John Mayer',
+        // album: 'Continuum',
+        // id: 1,
+        // uri: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
+        // },
+      ]
     }
     this.addTrack = this.addTrack.bind(this)
     this.removeTrack = this.removeTrack.bind(this)
