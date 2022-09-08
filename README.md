@@ -1,6 +1,6 @@
 # Basic Playlist Maker
 
-You can access this tool here https://playlistmaker12.surge.sh
+You can access this tool here https://playlistmakerapp12.surge.sh/
 
 Upon opening that link, you'll be prompted to login to your Spotify account before continuing.
 
